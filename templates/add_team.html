@@ -1,10 +1,9 @@
-<!-- templates/match_list.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matchlar Ro'yxati</title>
+    <title>Yangi Jamoa Qo'shish</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -66,13 +65,12 @@
     </style>
 </head>
 <body>
-    <h1>Matchlar Ro'yxati</h1>
-    <ul>
-        {% for match in matches %}
-            <li>{{ match.date }} - {{ match.team1 }} vs {{ match.team2 }}</li>
-        {% empty %}
-            <li>Matchlar mavjud emas.</li>
-        {% endfor %}
-    </ul>
+    <h1>Yangi Jamoa Qo'shish</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Qo'shish</button>
+    </form>
 </body>
 </html>
+
